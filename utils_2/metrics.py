@@ -2,6 +2,16 @@
 """
 Model validation metrics
 """
+import sys
+sys.path.append("yolov5_LC")
+import os
+from pathlib import Path
+
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[0]  # YOLOv5 root directory
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 import math
 import warnings
@@ -11,7 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-from utils import TryExcept, threaded
+from utils_2 import TryExcept, threaded
 
 
 def fitness(x):
